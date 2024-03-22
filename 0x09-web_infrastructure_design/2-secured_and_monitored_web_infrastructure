@@ -1,0 +1,46 @@
+https://i.im.ge/2024/03/22/RkWkX8.2-secured-and-monitored-web-infrastructure.png
+### Infrastructure Design:
+
+1. *Load Balancer (LB):*
+   - Terminates SSL and distributes incoming traffic to the three web servers.
+   - Manages traffic efficiently among the servers.
+
+2. *Web Servers (WS1, WS2, WS3):*
+   - Each server hosts the website www.foobar.com.
+   - Configured to serve encrypted traffic over HTTPS using the SSL certificate.
+   - Serve web content and handle user requests.
+
+3. *Database Servers (DB1, DB2, DB3):*
+   - MySQL servers for storing website data.
+   - Configured in a master-master replication setup for high availability and redundancy.
+
+4. *Firewalls (FW1, FW2, FW3):*
+   - Placed between the internet and the load balancer and between the load balancer and web servers.
+   - Control and filter incoming and outgoing traffic to enhance security.
+   - Prevent unauthorized access and potential attacks.
+
+5. *SSL Certificate:*
+   - Installed on the load balancer to encrypt traffic between clients and the servers.
+   - Ensures secure communication and protects sensitive data from interception or tampering.
+
+6. *Monitoring Clients:*
+   - Installed on each server to collect performance metrics, logs, and other data for monitoring purposes.
+   - Integrated with Sumo Logic or similar monitoring services to analyze and visualize the collected data.
+
+### Specifics:
+
+- *Firewalls:* Added to enhance security by controlling and filtering network traffic. They act as barriers between the servers and the internet, preventing unauthorized access and potential attacks.
+
+- *HTTPS:* Traffic is served over HTTPS to ensure data confidentiality, integrity, and authentication. HTTPS encrypts data transmitted between clients and servers, protecting it from eavesdropping and tampering.
+
+- *Monitoring:* Used to track the performance, availability, and security of the infrastructure. Monitoring tools collect data on various metrics, such as server CPU usage, memory utilization, network traffic, and error logs, allowing administrators to detect issues and troubleshoot problems promptly.
+
+- *Data Collection:* Monitoring tools collect data by deploying monitoring clients on each server. These clients gather performance metrics, logs, and other relevant information and send them to the monitoring service for analysis.
+
+### Potential Issues:
+
+- *Terminating SSL at the Load Balancer Level:* This could be an issue because it adds an extra step in the decryption-encryption process, potentially increasing latency and overhead. It also requires the load balancer to handle SSL/TLS termination, which could become a bottleneck under high traffic loads.
+
+- *Single MySQL Server for Writes:* Having only one MySQL server capable of accepting writes could lead to a single point of failure. If this server goes down, write operations will fail, affecting the availability and consistency of the website.
+
+- *Homogeneous Server Components:* Using servers with identical components (e.g., same database, web server, and application server) might be problematic because it increases the risk of widespread failures due to common vulnerabilities or software bugs. Diversifying the components can mitigate this risk by reducing the impact of potential issues on the entire infrastructure.

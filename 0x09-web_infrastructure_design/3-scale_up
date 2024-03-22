@@ -1,0 +1,44 @@
+https://i.im.ge/2024/03/22/RzTK6G.3-Scale-up.png
+**Infrastructure Specifics and Justifications:**
+
+1. **Load Balancers (HAProxy) - Clustered (Active-Active)**:
+   - **Why**: Load balancers distribute incoming application or network traffic across multiple servers to ensure no single server is overwhelmed with too much traffic. Clustering with HAProxy provides high availability, ensuring that if one load balancer fails, the other can take over to prevent service interruptions.
+  
+2. **Web Server**:
+   - **Why**: The web server serves static content, handles HTTP requests, and manages web resources like HTML, CSS, and JavaScript files. Separating it from the application server allows for better resource allocation and scalability. Additionally, it enhances security by isolating the web layer from direct access to the application and database layers.
+  
+3. **Application Server**:
+   - **Why**: The application server executes business logic, manages transactions, supports multi-threading, and provides connection pooling. Separating it from the web server ensures that the business logic and application-specific functionalities are isolated and can be scaled independently based on workload demands.
+  
+4. **Database Server**:
+   - **Why**: The database server stores, retrieves, and manages data for the application. Keeping it separate from the application server ensures data integrity, security, and optimized performance. It also allows for centralized data management, backups, and replication.
+  
+**Key Takeaways**:
+- **Scalability**: Separating components allows for horizontal scaling, where each server can be scaled independently based on workload demands.
+  
+- **High Availability**: Clustering load balancers with HAProxy ensures continuous service availability and fault tolerance.
+  
+- **Isolation**: Separating components enhances security by isolating layers and preventing direct access between web, application, and database servers.
+
+This infrastructure design ensures a scalable, resilient, and secure environment for hosting web applications by efficiently distributing traffic, isolating functionalities, and providing high availability and fault tolerance mechanisms.Infrastructure Specifics and Justifications:**
+
+1. **Load Balancers (HAProxy) - Clustered (Active-Active)**:
+   - **Why**: Load balancers distribute incoming application or network traffic across multiple servers to ensure no single server is overwhelmed with too much traffic. Clustering with HAProxy provides high availability, ensuring that if one load balancer fails, the other can take over to prevent service interruptions.
+  
+2. **Web Server**:
+   - **Why**: The web server serves static content, handles HTTP requests, and manages web resources like HTML, CSS, and JavaScript files. Separating it from the application server allows for better resource allocation and scalability. Additionally, it enhances security by isolating the web layer from direct access to the application and database layers.
+  
+3. **Application Server**:
+   - **Why**: The application server executes business logic, manages transactions, supports multi-threading, and provides connection pooling. Separating it from the web server ensures that the business logic and application-specific functionalities are isolated and can be scaled independently based on workload demands.
+  
+4. **Database Server**:
+   - **Why**: The database server stores, retrieves, and manages data for the application. Keeping it separate from the application server ensures data integrity, security, and optimized performance. It also allows for centralized data management, backups, and replication.
+  
+**Key Takeaways**:
+- **Scalability**: Separating components allows for horizontal scaling, where each server can be scaled independently based on workload demands.
+  
+- **High Availability**: Clustering load balancers with HAProxy ensures continuous service availability and fault tolerance.
+  
+- **Isolation**: Separating components enhances security by isolating layers and preventing direct access between web, application, and database servers.
+
+This infrastructure design ensures a scalable, resilient, and secure environment for hosting web applications by efficiently distributing traffic, isolating functionalities, and providing high availability and fault tolerance mechanisms.

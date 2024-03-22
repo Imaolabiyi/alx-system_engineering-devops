@@ -1,0 +1,21 @@
+https://i.im.ge/2024/03/22/RkjmNq.1-distributed-web-infrastructure.png
+*Infrastructure Design:*
+
+1. *User Access Request*:
+   - A user wants to access the website hosted at www.foobar.com.
+
+2. *Domain Name*:
+   - Domain Name: foobar.com
+   - DNS Record: www.foobar.com (A record pointing to the load balancer)
+
+3. *Load Balancer (HAproxy)*:
+   - Configuration: Round-robin distribution algorithm.
+   - Purpose: Distributes incoming HTTP requests evenly across multiple servers.
+   - Active-Active Setup: All load balancer instances are active and share the incoming traffic load.
+
+4. *Web Servers (Nginx)*:
+   - Two instances for redundancy and scalability.
+   - Serve as the entry point for HTTP requests and serve static content.
+
+5. *Application Server*:
+   - Executes the application codeb…
