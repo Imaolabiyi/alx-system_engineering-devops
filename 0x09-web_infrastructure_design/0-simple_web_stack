@@ -1,0 +1,61 @@
+https://i.im.ge/2024/03/22/RkPk60.0-simple-web-stack.png
+Infrastructure Design:
+
+1. User Access Request:
+   - A user wants to access the website hosted at www.foobar.com.
+
+2. Domain Name:
+   - Domain Name: foobar.com
+   - DNS Record: www.foobar.com (A record pointing to server IP 8.8.8.8)
+
+3. Server:
+   - Hardware/VM: Single server with adequate resources.
+   - IP Address: 8.8.8.8
+
+4. Web Server (Nginx):
+   - Installed on the server.
+   - Responsible for handling HTTP requests and serving static files.
+   - Communicates with the user's computer over HTTP/HTTPS.
+
+5. Application Server:
+   - Installed on the server.
+   - Executes the application codebase.
+   - Communicates with the web server via HTTP/HTTPS.
+
+6. Application Files:
+   - Codebase stored on the server.
+   - Contains website logic, such as HTML templates, backend code (e.g., Python, Ruby), etc.
+
+7. Database (MySQL):
+   - Installed on the server.
+   - Stores website data, such as user information, content, etc.
+   - Communicates with the application server using MySQL protocol.
+
+Explanation of Specifics:
+
+- Server: A physical or virtual machine that hosts the entire infrastructure, including the web server, application server, and database.
+
+- Domain Name: A human-readable address (e.g., www.foobar.com) used to access the website. It is translated to the server's IP address via DNS.
+
+- DNS Record: The "www" in www.foobar.com represents a subdomain and is typically a CNAME or A record pointing to the server's IP address.
+
+- Web Server: Nginx serves as the entry point for HTTP requests from users' computers. It handles static content delivery and can also act as a reverse proxy for dynamic content.
+
+- Application Server: Responsible for executing the website's application logic. It processes requests, interacts with the database, and generates dynamic content.
+
+- Database: MySQL stores and manages website data. It communicates with the application server to fetch or modify data as required by the application logic.
+
+- Communication with User's Computer: The server communicates with the user's computer over HTTP or HTTPS protocols, depending on whether secure communication is required.
+
+Issues with this Infrastructure:
+
+1. Single Point of Failure (SPOF):
+   - If the server goes down, the entire website becomes inaccessible.
+
+2. Downtime during Maintenance:
+   - When deploying new code or performing maintenance tasks, the web server may need to be restarted, resulting in downtime for users.
+
+3. Limited Scalability:
+   - With only one server, the infrastructure cannot handle a significant increase in incoming traffic. Scaling horizontally (adding more servers) would be necessary to address this limitation.
+
+This infrastructure provides a basic setup for hosting a website but has inherent limitations regarding reliability, scalability, and downtime during maintenance. Further enhancements, such as implementing redundancy, load balancing, and automation, would be necessary to address these issues effectively.
