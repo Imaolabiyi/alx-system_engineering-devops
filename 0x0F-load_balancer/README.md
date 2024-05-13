@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+Solutions to tasks on Load balance
+=======
 Solution: 0x0F. Load balancer
 General
 Allowed editors: vi, vim, emacs
@@ -40,3 +43,4 @@ The name of the custom HTTP header must be X-Served-By
 The value of the custom HTTP header must be the hostname of the server Nginx is running on
 Write 2-puppet_custom_http_response_header.pp so that it configures a brand new Ubuntu machine to the requirements asked in this task
 
+>>>>>>> 94002ae79af8eb2c1f8cfa8f746f3a022fb7677a
